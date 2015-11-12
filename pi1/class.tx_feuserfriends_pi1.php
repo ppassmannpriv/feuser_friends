@@ -531,6 +531,7 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 	 */
 	function listView($friends=false)
 	{
+
 		$this->mode = 'listView.';
 		$markerArray = array();
 		$where = '';
@@ -541,16 +542,19 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 		list($this->internal['orderBy'], $this->internal['descFlag']) = explode(':',$this->piVars['sort']);
 		if (class_exists(t3lib_utility_VersionNumber) && t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4006000) {
 			$this->internal['results_at_a_time']  = t3lib_utility_Math::forceIntegerInRange($this->conf[$this->mode]['itemsPerPage'], 0, 1000, 10);
-			$this->internal['maxPages']           = t3lib_utility_Math::forceIntegerInRange($this->conf[$this->mode]['maxPages'], 0, 1000, 2);
+			$this->internal['maxPages']           = t3lib_utility_Math::forceIntegerInRange($this->conf[$this->mode]['maxPages'], 0, 1000, 5);
 			$this->internal['showFirstLast']      = t3lib_utility_Math::forceIntegerInRange($this->conf[$this->mode]['showFirstLast'], 0, 1, 0);
 			$this->internal['dontLinkActivePage'] = t3lib_utility_Math::forceIntegerInRange($this->conf[$this->mode]['dontLinkActivePage'], 0, 1, 0);
 		} else {
 			$this->internal['results_at_a_time']  = t3lib_div::intInRange($this->conf[$this->mode]['itemsPerPage'], 0, 1000, 10);
-			$this->internal['maxPages']           = t3lib_div::intInRange($this->conf[$this->mode]['maxPages'], 0, 1000, 2);
+			$this->internal['maxPages']           = t3lib_div::intInRange($this->conf[$this->mode]['maxPages'], 0, 1000, 5);
 			$this->internal['showFirstLast']      = t3lib_div::intInRange($this->conf[$this->mode]['showFirstLast'], 0, 1, 0);
 			$this->internal['dontLinkActivePage'] = t3lib_div::intInRange($this->conf[$this->mode]['dontLinkActivePage'], 0, 1, 0);
 		}
+		$this->conf['searchFields'] = 'username,name,firstname,usergroup,email,address,city,zip';
 		$this->internal['searchFieldList'] = $this->conf['searchFields'];
+
+		$this->conf['orderByFields'] = 'username,name,firstname,usergroup,email,address,zip,city';
 		$this->internal['orderByList'] = $this->conf['orderByFields'];
 		if ($this->conf[$this->mode]['pagefloat']) {
 			// Where in the list is the current page shown. The value 'center' puts it in the middle.
@@ -581,9 +585,10 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 		// Make listing query, pass query to MySQL:
 		$res = $this->pi_exec_query($this->internal['currentTable'], 0, $where, '', '', $this->conf['orderByFields']);
 		// Adds the search box:
-		$markerArray['SEARCH'] = $this->pi_list_searchBox();
+		$markerArray['SEARCH'] = str_replace('value="Search"', 'value="Suche"', $this->pi_list_searchBox());
 		// Adds the result browser:
 		$markerArray['BROWSE'] = $this->pi_list_browseresults();
+
 		if ($this->conf['have_GSI_hack']) {
 			$markerArray['BROWSE_RESULTS'] = $this->pi_list_browseresults(1, '', 0);
 			$markerArray['BROWSE_PAGES'] = $this->pi_list_browseresults(0, '', 1);
@@ -612,6 +617,9 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 		$markerArray['LIST_PERSON'] = $this->pi_getLL('list_person');
 		$markerArray['LIST_USERNAME'] = $this->pi_getLL('list_username');
 		$markerArray['LIST_NAME'] = $this->pi_getLL('list_name');
+		$markerArray['LIST_FIRSTNAME'] = $this->pi_getLL('list_firstname');
+		$markerArray['LIST_KORP'] = $this->pi_getLL('list_korp');
+
 
 		return $this->cObj->substituteMarkerArray($tplCode, $markerArray, '###|###', 0);
 	}
@@ -651,9 +659,13 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 		$markerArray = array();
 		$template = $this->rowTplCode;
 		// fields
+
+		$this->conf['listView.']['fields'] = 'username,name,firstname,usergroup,email,image,firstname,city,address,zip';
 		foreach(t3lib_div::trimExplode(',', $this->conf['listView.']['fields'], 1) as $f) {
 			$markerArray['FIELD_'.$f] = $this->getFieldContent($f, $pointer);
+
 		}
+
 		$markerArray['LINK'] = $this->pi_list_linkSingle(
 			'',
 			$this->internal['currentRow']['uid'],
@@ -732,6 +744,9 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 	 */
 	function singleView()
 	{
+
+		$this->conf['singleView.']['fields'] = 'username,name,email,city,country,www,image,firstname,address,birthdate,zip,usergroup';
+
 		$markerArray = array();
 		$this->mode = 'singleView.';
 		$this->internal['currentRow'] = $this->pi_getRecord(
@@ -828,8 +843,23 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 					$content = $this->internal['currentRow'][$fN];
 				}
 				break;
+			case 'usergroup':
+				$string = '';
+				$query = "SELECT `title` FROM `fe_groups` WHERE `uid`='".$this->internal['currentRow']['usergroup']."'";
+				//$res = $GLOBALS['TYPO3_DB']->sql_query(TYPO3_db, $query);
+				$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('title', 'fe_groups', 'uid='.$this->internal['currentRow']['usergroup']);
+				if($res)
+				{
+						while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))
+						{
+							$string = $row['title'];
+						}
+				}
+
+				$content = $string;
+				break;
 			case 'email':
-				if ($this->conf['alwaysShowEmail'] || // yes, always show email!
+				/*if ($this->conf['alwaysShowEmail'] || // yes, always show email!
 					!isset($this->conf['showEmailField']) || // don't test field, so show email
 					isset($this->internal['currentRow'][$this->conf['showEmailField']])
 				) { // FE user wants it, so show email
@@ -840,7 +870,7 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 					$link_conf['parameter'] = $this->internal['currentRow']['email'];
 					$content = $this->cObj->typolink('',$link_conf);
 				}
-				break;
+				break;*/
 			default:
 				if (in_array($fN, $this->img_fields)) {
 					// Image fields
@@ -871,6 +901,7 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 				} elseif (is_array($this->conf[$this->mode]['showValues.']["$fN."])) {
 					$content = $this->conf[$this->mode]['showValues.']["$fN."][$this->internal['currentRow'][$fN]];
 				} elseif (is_array($this->conf[$this->mode]['showValuesBitmask.']["$fN."])) {
+
 					$showValues = array();
 					reset($this->conf[$this->mode]['showValuesBitmask.']["$fN."]);
 					while(list($bit,$val)=each($this->conf[$this->mode]['showValuesBitmask.']["$fN."])) {
@@ -883,8 +914,10 @@ class tx_feuserfriends_pi1 extends tslib_pibase
 					$content = $this->internal['currentRow'][$fN];
 				}
 				break;
+
 		}
 		if ($this->conf[$this->mode]['fieldWraps.']["$fN."]) {
+
 			$content = $this->cObj->stdWrap($content, $this->conf[$this->mode]['fieldWraps.']["$fN."]);
 		}
 

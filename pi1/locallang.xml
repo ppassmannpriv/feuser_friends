@@ -9,6 +9,8 @@
 			<label index="list_person">Person</label>
 			<label index="list_username">Username:</label>
 			<label index="list_name">Name:</label>
+			<label index="list_firstname">Firstname:</label>
+			<label index="list_korp">Usergroup:</label>
 			<label index="add_as_friend">Add as friend</label>
 			<label index="remove_friend">Remove Friend</label>
 			<label index="send_message">Send Message</label>
@@ -39,6 +41,8 @@
 			<label index="list_person">Personen</label>
 			<label index="list_username">Benutzername:</label>
 			<label index="list_name">Name:</label>
+			<label index="list_firstname">Vorname:</label>
+			<label index="list_korp">Korporation:</label>
 			<label index="add_as_friend">Als FreundIn hinzufÃ¼gen</label>
 			<label index="remove_friend">Freund entfernen</label>
 			<label index="send_message">Nachricht senden</label>
@@ -93,7 +97,7 @@
 			<label index="pi_list_browseresults_page">Side</label>
 			<label index="pi_list_browseresults_next">Næste &gt;</label>
 			<label index="pi_list_browseresults_last">Sidste &gt;&gt;</label>
-   			<label index="pi_list_browseresults_displays">Viser fra %s til %s ud af %s</label> 
+   			<label index="pi_list_browseresults_displays">Viser fra %s til %s ud af %s</label>
 		</languageKey>
 	</data>
 </T3locallang>
