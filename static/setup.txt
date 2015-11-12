@@ -1,0 +1,107 @@
+plugin.tx_feuserfriends_pi1 {
+	jQueryNoConflict = {$plugin.tx_feuserfriends_pi1.jQueryNoConflict}
+	jsInFooter = {$plugin.tx_feuserfriends_pi1.jsInFooter}
+	jsMinify = {$plugin.tx_feuserfriends_pi1.jsMinify}
+	jsInline = {$plugin.tx_feuserfriends_pi1.jsInline}
+	cssMinify = {$plugin.tx_feuserfriends_pi1.cssMinify}
+
+	templateFile = {$plugin.tx_feuserfriends_pi1.file.templateFile}
+	jQueryLibrary = {$plugin.tx_feuserfriends_pi1.file.jQueryLibrary}
+	jQueryEasing = {$plugin.tx_feuserfriends_pi1.file.jQueryEasing}
+	jQueryUI = {$plugin.tx_feuserfriends_pi1.file.jQueryUI}
+	jQueryUIstyle = {$plugin.tx_feuserfriends_pi1.file.jQueryUIstyle}
+
+	# default poroperty of piBase
+	pidList.field = pages
+	pidList.ifEmpty = {$plugin.tx_feuserfriends_pi1.pidList}
+
+	# Page ID of friends storage
+	pidFriends = {$plugin.tx_feuserfriends_pi1.pidFriends}
+
+	# Page ID of message storage
+	pidMessage = {$plugin.tx_feuserfriends_pi1.pidMessage}
+
+	# Page ID of detail view
+	detailId = {$plugin.tx_feuserfriends_pi1.detailId}
+
+	# html tag id to show messages
+	messageWrapOk = {$plugin.tx_feuserfriends_pi1.messageWrapOk}
+	messageWrapError = {$plugin.tx_feuserfriends_pi1.messageWrapError}
+	messageTagID = {$plugin.tx_feuserfriends_pi1.messageTagID}
+
+	# default poroperty of piBase
+	recursive.field = recursive
+	recursive.override = {$plugin.tx_feuserfriends_pi1.recursive}
+	recursive.override.if.isFalse.field = pages
+
+	linkFields = {$plugin.tx_feuserfriends_pi1.linkFields}
+	imageFields = {$plugin.tx_feuserfriends_pi1.imageFields}
+	rteFields = {$plugin.tx_feuserfriends_pi1.rteFields}
+	showEmailField = {$plugin.tx_feuserfriends_pi1.showEmailField}
+	hideUserField = {$plugin.tx_feuserfriends_pi1.hideUserField}
+
+	alwaysShowEmail = {$plugin.tx_feuserfriends_pi1.alwaysShowEmail}
+	neverHideUser = {$plugin.tx_feuserfriends_pi1.neverHideUser}
+
+	userGroupToShow = {$plugin.tx_feuserfriends_pi1.userGroupToShow}
+
+	# Define the folder of the imagefield
+	# imgDirs.<field> = uploads/tx_ext
+
+	# Views can be defined like this:
+	# <VIEW>.fields = <FIELDS_TO_SHOW>
+	# <VIEW>.fieldWraps.<FIELD> = <STDWRAP>
+	# <VIEW>.imgWraps.<FIELD> = <IMAGE_COBJECT>
+	# <VIEW>.showValues.<FIELD>.<VALUE> = <TEXT>
+	# <VIEW>.showValuesBitmask.<FIELD>.<BIT_NUBMER> = <TEXT>
+
+	listView.fields = username,name,email,image
+	listView.timeFormat = %d.%m.%Y
+	listView.imgWraps.image = IMAGE
+	listView.imgWraps.image {
+		file {
+			maxW = 120
+			maxH = 120
+		}
+	}
+
+	friendsRequestView < .listView
+
+	singleView.fields = username,name,email,city,country,www,image
+	singleView.timeFormat = %d.%m.%Y
+	singleView.imgWraps.image = IMAGE
+	singleView.imgWraps.image {
+		file {
+			maxW = 280
+			maxH = 280
+		}
+	}
+
+	smallView < .singleView
+
+	searchFields = username,name,email
+	orderByFields = username,name,email
+	linkName = 1
+
+	# labels.<FIELD> = <TEXT>
+	# labelWraps.<FIELD> = <STDWRAP>
+}
+
+
+# AJAX Response
+tx_feuserfriends_ajax = PAGE
+tx_feuserfriends_ajax {
+	typeNum = {$plugin.tx_feuserfriends_pi1.ajaxTypeNum}
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+		no_cache = 1
+		admPanel = 0
+	}
+	10 < plugin.tx_feuserfriends_pi1
+	10 {
+		userFunc = tx_feuserfriends_pi1->main
+		ajax = 1
+	}
+}
+

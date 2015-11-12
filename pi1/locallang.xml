@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_feuserfriends_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="list_person">Person</label>
+			<label index="list_username">Username:</label>
+			<label index="list_name">Name:</label>
+			<label index="add_as_friend">Add as friend</label>
+			<label index="remove_friend">Remove Friend</label>
+			<label index="send_message">Send Message</label>
+			<label index="view_profile">View Profile</label>
+			<label index="back_text">Back</label>
+			<label index="ok">OK</label>
+			<label index="cancel">Cancel</label>
+			<label index="friends_remove_title">Remove friend</label>
+			<label index="friend_remove_message_ok">You removed your friend %s</label>
+			<label index="friend_remove_message_error">An Error is occured!</label>
+			<label index="friends_add_title">Friend request</label>
+			<label index="friends_add_message_ok">You have invited %s as friend</label>
+			<label index="friends_add_message_already">You are already a friend with %s</label>
+			<label index="friends_add_message_error">An Error is occured!</label>
+			<label index="friends_request_title">Friend requests</label>
+			<label index="friends_request_accept">Accept</label>
+			<label index="friends_request_reject">Reject</label>
+			<label index="friends_message_message_ok">Message successfully sent</label>
+			<label index="friends_message_message_error">An Error is occured!</label>
+			<label index="pi_list_browseresults_first">&lt;&lt; First</label>
+			<label index="pi_list_browseresults_prev">&lt; Previus</label>
+			<label index="pi_list_browseresults_page">Page</label>
+			<label index="pi_list_browseresults_next">Next &gt;</label>
+			<label index="pi_list_browseresults_last">Last &gt;&gt;</label>
+			<label index="pi_list_browseresults_displays">Displaying results ###FROM### to ###TO### out of ###OUT_OF###</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="list_person">Personen</label>
+			<label index="list_username">Benutzername:</label>
+			<label index="list_name">Name:</label>
+			<label index="add_as_friend">Als FreundIn hinzufÃ¼gen</label>
+			<label index="remove_friend">Freund entfernen</label>
+			<label index="send_message">Nachricht senden</label>
+			<label index="view_profile">Profile ansehen</label>
+			<label index="back_text">Zurück</label>
+			<label index="ok">OK</label>
+			<label index="cancel">Abbrechen</label>
+			<label index="friends_remove_title">Freund entfernen</label>
+			<label index="friend_remove_message_ok">Du hast deinen Freund %s entfernt</label>
+			<label index="friend_remove_message_error">Ein Fehler ist aufgetreten!</label>
+			<label index="friends_add_title">Als Freund hinzufügen</label>
+			<label index="friends_add_message_ok">Du hast den Benutzer %s als Freund eingeladen</label>
+			<label index="friends_add_message_already">Du bist bereits mit %s befreundet</label>
+			<label index="friends_add_message_error">Ein Fehler ist aufgetreten!</label>
+			<label index="friends_request_title">Freundschaftsanfragen</label>
+			<label index="friends_request_accept">Akzeptieren</label>
+			<label index="friends_request_reject">Ablehnen</label>
+			<label index="friends_message_message_ok">Die Mitteilung wurde versendet.</label>
+			<label index="friends_message_message_error">Ein Fehler ist aufgetreten!</label>
+			<label index="pi_list_browseresults_first">&lt;&lt; Erster</label>
+			<label index="pi_list_browseresults_prev">&lt; Zurück</label>
+			<label index="pi_list_browseresults_page">Seite</label>
+			<label index="pi_list_browseresults_next">Weiter &gt;</label>
+			<label index="pi_list_browseresults_last">Letzte &gt;&gt;</label>
+			<label index="pi_list_browseresults_displays">Zeige resultat ###FROM### bis ###TO### von ###OUT_OF###</label>
+		</languageKey>
+		<languageKey index="dk" type="array">
+			<label index="list_person">Person</label>
+			<label index="list_username">Brugernavn</label>
+			<label index="list_name">Navn</label>
+			<label index="add_as_friend">Tilføj som ven</label>
+			<label index="remove_friend">Fjern ven</label>
+			<label index="send_message">Send besked</label>
+			<label index="view_profile">Vis profil</label>
+			<label index="back_text">Tilbage</label>
+			<label index="ok">OK</label>
+			<label index="cancel">Annuler</label>
+			<label index="friends_remove_title">Fjern ven</label>
+			<label index="friend_remove_message_ok">Du har fjernet %s som ven</label>
+			<label index="friend_remove_message_error">Der opstod en fejl!</label>
+			<label index="friends_add_title">Venne-forspørgsel</label>
+			<label index="friends_add_message_ok">Du har inviteret %s som ven</label>
+			<label index="friends_add_message_already">Du er allerede ven med %s</label>
+			<label index="friends_add_message_error">Der opstod en fejl!</label>
+			<label index="friends_request_title">Venne-forspørgsel</label>
+			<label index="friends_request_accept">Accepter</label>
+			<label index="friends_request_reject">Afslå</label>
+			<label index="friends_message_message_ok">Beskeden er sendt</label>
+			<label index="friends_message_message_error">Der opstod en fejl!</label>
+			<label index="pi_list_browseresults_first">&lt;&lt; Første</label>
+			<label index="pi_list_browseresults_prev">&lt;Forrige</label>
+			<label index="pi_list_browseresults_page">Side</label>
+			<label index="pi_list_browseresults_next">Næste &gt;</label>
+			<label index="pi_list_browseresults_last">Sidste &gt;&gt;</label>
+   			<label index="pi_list_browseresults_displays">Viser fra %s til %s ud af %s</label> 
+		</languageKey>
+	</data>
+</T3locallang>

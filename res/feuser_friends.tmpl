@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<TITLE>Frond End User List Template</TITLE>
+</head>
+<body>
+
+<h1>Front End User List/View Templates</h1>
+
+<h2>List templates:</h2>
+
+
+
+
+<!-- ###TEMPLATE_LIST### begin
+	This template is used to generate a list that displays all the users.
+	For each item you can use the regular record markers formatted like this: ###FIELD_[fieldname]###
+-->
+
+
+
+
+<!-- ###SUB_TEMPLATE_ITEM### begin -->
+	<tr>
+		<td>###FIELD_username###</td>
+		<td>###FIELD_name###</td>
+	</tr>
+<!-- ###SUB_TEMPLATE_ITEM### end -->
+
+
+
+
+<!-- ###SUB_TEMPLATE_ITEMS### begin -->
+###SEARCH###
+###BROWSE###
+<table>
+	<tr>
+		<th>###SORT_username###</th>
+		<th>###SORT_name###</th>
+	</tr>
+	###ITEMS###
+</table>
+<!-- ###SUB_TEMPLATE_ITEMS### end -->
+
+<!-- ###TEMPLATE_LIST### end -->
+
+
+
+
+<!-- ###TEMPLATE_LIST_LOGIN### begin
+	This template is used to generate a list that displays all the users.
+	For each item you can use the regular record markers formatted like this: ###FIELD_[fieldname]###
+-->
+
+
+
+
+<!-- ###SUB_TEMPLATE_ITEM### begin -->
+<div class="tx_feuserfriends_pi1-list" id="###ID###">
+<table>
+	<tr>
+		<td class="list-image">###FIELD_image###</td>
+		<td>
+			<table class="infotable">
+				<tr>
+					<td class="infolabel">###LIST_USERNAME###</td>
+					<td class="infovalue">###FIELD_username###</td>
+				</tr>
+				<tr>
+					<td class="infolabel">###LIST_NAME###</td>
+					<td class="infovalue">###FIELD_name###</td>
+				</tr>
+			</table>
+		</td>
+		<td class="list-action">
+			<ul>
+				<!-- ###ADD_AS_FRIEND### -->
+				<li class="add-as-friend"><a href="###HREF###" onclick="###ONCLICK###">###VALUE###</a></li>
+				<!-- ###ADD_AS_FRIEND### -->
+				<!-- ###SEND_MESSAGE### -->
+				<li class="send-message"><a href="###HREF###" onclick="###ONCLICK###">###VALUE###</a></li>
+				<!-- ###SEND_MESSAGE### -->
+				<!-- ###VIEW_PROFILE### -->
+				<li class="view-profile">###LINK_TO###</li>
+				<!-- ###VIEW_PROFILE### -->
+			</ul>
+		</td>
+	</tr>
+</table>
+</div>
+<!-- ###SUB_TEMPLATE_ITEM### end -->
+
+
+
+
+<!-- ###SUB_TEMPLATE_ITEMS### begin -->
+###SEARCH###
+###BROWSE###
+<div class="tx_feuserfriends_pi1-list">
+	###LIST_PERSON###
+</div>
+###ITEMS###
+<!-- ###SUB_TEMPLATE_ITEMS### end -->
+
+<!-- ###TEMPLATE_LIST_LOGIN### end -->
+
+
+
+
+<h2>User templates:</h2>
+
+
+
+
+<!-- ###TEMPLATE_ITEM### begin
+	This template is used to display a single user.
+-->
+<div class="tx_feuserfriends_pi1-profile">
+	<div class="itx_feuserfriends_pi1-image">
+		###FIELD_image###
+	</div>
+	<dl>
+		<dt>###LABEL_name###</dt>
+		<dd>###FIELD_name###</dd>
+	</dl>
+	<div class="tx_feuserfriends_pi1-link">
+		<a href="###BACK_URL###">###BACK_TEXT###</a>
+	</div>
+</div>
+<!-- ###TEMPLATE_ITEM### end -->
+
+
+
+
+<!-- ###TEMPLATE_ITEM_LOGIN### begin
+	This template is used to display a single user.
+-->
+<div class="tx_feuserfriends_pi1-profile">
+	<div class="tx_feuserfriends_pi1-image">
+		###FIELD_image###
+	</div>
+	<dl>
+		<dt>###LABEL_name###</dt>
+		<dd>###FIELD_name###</dd>
+
+		<dt>###LABEL_address###</dt>
+		<dd>###FIELD_address###</dd>
+
+		<dt>###LABEL_telephone###</dt>
+		<dd>###FIELD_telephone###</dd>
+
+		<dt>###LABEL_fax###</dt>
+		<dd>###FIELD_fax###</dd>
+
+		<dt>###LABEL_www###</dt>
+		<dd>###FIELD_www###</dd>
+
+		<dt>###LABEL_email###</dt>
+		<dd>###FIELD_email###</dd>
+
+		<dt>###LABEL_title###</dt>
+		<dd>###FIELD_title###</dd>
+
+		<dt>###LABEL_country###</dt>
+		<dd>###FIELD_country###</dd>
+
+		<dt>###LABEL_is_online###</dt>
+		<dd>###FIELD_is_online###</dd>
+
+		<dt>###LABEL_crdate###</dt>
+		<dd>###FIELD_crdate###</dd>
+
+		<dt>###LABEL_comments###</dt>
+		<dd>###FIELD_comments###</dd>
+
+	</dl>
+	<div class="tx_feuserfriends_pi1-link">
+		<a href="###BACK_URL###">###BACK_TEXT###</a>
+	</div>
+</div>
+<!-- ###TEMPLATE_ITEM_LOGIN### end -->
+
+
+
+
+<!-- ###TEMPLATE_ITEM_NOUSER### begin
+	This template is used when the requested user does not exist.
+-->
+<p>User not found.</p>
+<!-- ###TEMPLATE_ITEM_NOUSER### end -->
+
+
+
+
+<!-- ###TEMPLATE_ITEM_HIDDENUSER### begin
+	This template is used when the requested user information is suppressed.
+	If this template does not exist, then TEMPLATE_ITEM_NOUSER is used as a fallback.
+	Ie. by removing this template a "hidden" user will be really invisible.
+-->
+<p>User undisclosed.</p>
+<!-- ###TEMPLATE_ITEM_HIDDENUSER### end -->
+
+
+
+
+<p>Friend requests</p>
+
+
+<!-- ###TEMPLATE_FRIENDS_REQUEST_LIST### begin -->
+<div class="tx_feuserfriends_pi1-friendrequest_list">
+	<h3>###TITLE###</h3>
+	<ul>
+		<!-- ###ROW### -->
+		<li id="###ID###"><a href="###HREF###" onclick="###ONCLICK###">###VALUE###</a></li>
+		<!-- ###ROW### -->
+	</ul>
+</div>
+<!-- ###TEMPLATE_FRIENDS_REQUEST_LIST### begin -->
+
+
+<!-- ###TEMPLATE_MESSAGE_LIST### begin -->
+<div class="tx_feuserfriends_pi1-message_list">
+	<!-- ###ROW### -->
+	<h3>###USER_FROM###</h3>
+	<p>###MESSAGE###</p>
+	<!-- ###ROW### -->
+</div>
+<!-- ###TEMPLATE_MESSAGE_LIST### begin -->
+
+
+<!-- ###TEMPLATE_ADD_FRIEND_DIALOG### begin -->
+<div class="tx_feuserfriends_pi1-dialog">
+	<h3>###NAME###</h3>
+	<div class="tx_feuserfriends_pi1-image">###IMAGE###</div>
+	<div class="tx_feuserfriends_pi1-text">
+		<textarea name="tx_feuserfriends_pi1[invitation]"></textarea>
+	</div>
+</div>
+<!-- ###TEMPLATE_ADD_FRIEND_DIALOG### begin -->
+
+
+<!-- ###TEMPLATE_REMOVE_FRIEND_DIALOG### begin -->
+<div class="tx_feuserfriends_pi1-dialog">
+	<div class="tx_feuserfriends_pi1-message">###MESSAGE###</div>
+	<h3>###NAME###</h3>
+	<div class="tx_feuserfriends_pi1-image">###IMAGE###</div>
+	<div class="tx_feuserfriends_pi1-text">###COMMENTS###</div>
+</div>
+<!-- ###TEMPLATE_REMOVE_FRIEND_DIALOG### begin -->
+
+
+<!-- ###TEMPLATE_FRIENDS_REQUEST### begin -->
+<div class="tx_feuserfriends_pi1-dialog">
+	<h3>###TITLE###</h3>
+	<div class="tx_feuserfriends_pi1-image">###IMAGE###</div>
+	<p>###INVITATION###</p>
+</div>
+<!-- ###TEMPLATE_FRIENDS_REQUEST### begin -->
+
+
+
+
+<p>Message</p>
+
+
+<!-- ###TEMPLATE_MESSAGE_DIALOG### begin -->
+<div class="tx_feuserfriends_pi1-dialog">
+	<h3>###NAME###</h3>
+	<div class="tx_feuserfriends_pi1-text">
+		<textarea name="tx_feuserfriends_pi1[message]"></textarea>
+	</div>
+</div>
+<!-- ###TEMPLATE_MESSAGE_DIALOG### begin -->
+
+</body>
+</html>
+

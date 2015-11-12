@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'feuser_friends'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">Frontend-user friends</label>
+			<label index="pi1_plus_wiz_description">List FE users and displays user profiles.</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="pi1_title">Frontend-user Freunde</label>
+			<label index="pi1_plus_wiz_description">Listet FE-User und stellt User-Profile dar.</label>
+		</languageKey>
+	</data>
+</T3locallang>

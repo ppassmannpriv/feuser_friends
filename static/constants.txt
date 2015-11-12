@@ -1,0 +1,87 @@
+plugin.tx_feuserfriends_pi1 {
+
+	# cat=plugin.feuser_friends/enable/010; type=boolean; label=jQuery noConflict: Use jQuery in noConflict mode
+	jQueryNoConflict = 0
+
+	# cat=plugin.feuser_friends/enable/030; type=boolean; label=Javascript in Footer: If set, the Javascript will be rendered in Footer
+	jsInFooter = 0
+
+	# cat=plugin.feuser_friends/enable/040; type=boolean; label=Minify Javascript: If set, the Javascript will be minified
+	jsMinify = 0
+
+	# cat=plugin.feuser_friends/enable/050; type=boolean; label=Javascript to Inline: If set, the Javascript will be inserted into the inlineJS, after this, its possible to put it into externel files (config.removeDefaultJS = external)
+	jsInline = 0
+
+	# cat=plugin.feuser_friends/enable/060; type=boolean; label=Minify CSS: If set, the CSS will be minified
+	cssMinify = 0
+
+
+
+	# cat=plugin.feuser_friends/file/010; type=file[html,htm,tmpl,txt]; label= Template File: HTML-template file
+	file.templateFile = EXT:feuser_friends/res/feuser_friends.tmpl
+
+	# cat=plugin.feuser_friends/file/020; type=file[js]; label=jQuery Library: Location of the jQuery Lib
+	file.jQueryLibrary = EXT:feuser_friends/res/jquery/js/jquery-1.7.2.min.js
+
+	# cat=plugin.feuser_friends/file/030; type=file[js]; label=jQuery Easing: Location of the jQuery Easing
+	file.jQueryEasing = EXT:feuser_friends/res/jquery/js/jquery.easing-1.3.js
+
+	# cat=plugin.feuser_friends/file/040; type=file[js]; label=jQuery UI: Location of the jQuery UI
+	file.jQueryUI = EXT:feuser_friends/res/jquery/js/jquery-ui-1.8.20.custom.min.js
+
+	# cat=plugin.feuser_friends/file/050; type=file[css]; label=jQuery UI style: Location of the jQuery UI CSS
+	file.jQueryUIstyle = EXT:feuser_friends/res/jquery/css/theme-1.8.20/jquery-ui-1.8.20.custom.css
+
+
+
+	# cat=plugin.feuser_friends/basic/010; type=int+; label=PID of FE user storage folder: If empty "Starting point" or current folder are used
+	pidList =
+
+	# cat=plugin.feuser_friends/basic/020; type=int+; label=PID of friends storage
+	pidFriends =
+
+	# cat=plugin.feuser_friends/basic/030; type=int+; label=PID of message storage
+	pidMessage = 
+
+	# cat=plugin.feuser_friends/basic/040; type=int+; label=PID for detailed view: The ID of the page where the FE-user detail is shown
+	detailId =
+
+	# cat=plugin.feuser_friends/basic/050; type=int+; label=FE user Recursion depth: Depth for FE user storage folder recursion - empty or 0 means no recursion
+	recursive = 0
+
+	# cat=plugin.feuser_friends/basic/060; type=string; label=Link fields: Fields that contain links or typolinks (eg homepage and email address)
+	linkFields = email,www
+
+	# cat=plugin.feuser_friends/basic/070; type=string; label=Image fields: Fields that contain images
+	imageFields = image
+
+	# cat=plugin.feuser_friends/basic/075; type=string; label=RTE fields: Fields that contain a RTE-Editor
+	rteFields = 
+
+	# cat=plugin.feuser_friends/basic/080; type=string; label='Show email' field: Name of a field that enables the display of email addresses for a single user. Any content that evaluates as 'true' will make the email address appear. Otherwise the output is suppressed for the privacy of this user
+	showEmailField =
+
+	# cat=plugin.feuser_friends/basic/090; type=boolean; label=Override the 'show email' field: If you use this feature the email addresses are disclosed regardless of the user settings. This may be used to honour the preferences when showing profiles to non-members, but will allow members to see addresses of other members
+	alwaysShowEmail = 0
+
+	# cat=plugin.feuser_friends/basic/100; type=string; label='Hide user' field: Name of a field that disables the listing of a single user. Any content that evaluates as 'true' will make the user disappear. Otherwise the user is display normally
+	hideUserField = 
+
+	# cat=plugin.feuser_friends/basic/110; type=boolean; label=Override the 'hide user' field: If you use this feature the users are always listed. This may be used to honour the preferences when showing profiles to non-members, but will allow members to see addresses of other members
+	neverHideUser = 0
+
+	# cat=plugin.feuser_friends/basic/115; type=string; label=User group to show: Coma separated values of the group UID to display (show all if empty)
+	userGroupToShow = 
+
+	# cat=plugin.feuser_friends/basic/120; type=int+; label=Page typoNum for AJAX
+	ajaxTypeNum = 500
+
+	# cat=plugin.feuser_friends/basic/130; type=string; label=Wrap for error messages
+	messageWrapError = <div class="error">|</div>
+
+	# cat=plugin.feuser_friends/basic/140; type=string; label=Wrap for ok messages
+	messageWrapOk = <div class="ok">|</div>
+
+	# cat=plugin.feuser_friends/basic/150; type=int+; label=html tag id to show messages
+	messageTagID = friendsrequest_message
+}

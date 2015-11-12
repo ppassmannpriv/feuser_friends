@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'feuser_friends'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.tx_feuserfriends_view.I.0">List</label>
+			<label index="tt_content.tx_feuserfriends_view.I.1">Detail</label>
+			<label index="tt_content.tx_feuserfriends_view.I.2">Friendsrequest</label>
+			<label index="tt_content.tx_feuserfriends_view.I.3">Friends</label>
+			<label index="tt_content.tx_feuserfriends_view.I.4">Messages</label>
+			<label index="tt_content.tx_feuserfriends_view">View</label>
+			<label index="tt_content.list_type_pi1">Frontend-user friends</label>
+			<label index="tx_feuserfriends_friends">Friends</label>
+			<label index="tx_feuserfriends_friends.user_from">User From</label>
+			<label index="tx_feuserfriends_friends.user_to">User to</label>
+			<label index="tx_feuserfriends_friends.invitation">Invitation</label>
+			<label index="tx_feuserfriends_friends.accept">Accept</label>
+			<label index="tx_feuserfriends_message">Message</label>
+			<label index="tx_feuserfriends_message.user_from">User From</label>
+			<label index="tx_feuserfriends_message.user_to">User to</label>
+			<label index="tx_feuserfriends_message.message">Message</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tt_content.tx_feuserfriends_view.I.0">Liste</label>
+			<label index="tt_content.tx_feuserfriends_view.I.1">Detail</label>
+			<label index="tt_content.tx_feuserfriends_view.I.2">Freundesanfrage</label>
+			<label index="tt_content.tx_feuserfriends_view.I.3">Freunde</label>
+			<label index="tt_content.tx_feuserfriends_view.I.4">Nachrichten</label>
+			<label index="tt_content.tx_feuserfriends_view">Ansicht</label>
+			<label index="tt_content.list_type_pi1">Frontend-user Freunde</label>
+			<label index="tx_feuserfriends_friends">Freunde</label>
+			<label index="tx_feuserfriends_friends.user_from">Benutzer von</label>
+			<label index="tx_feuserfriends_friends.user_to">Benutzer nach</label>
+			<label index="tx_feuserfriends_friends.invitation">Einladung</label>
+			<label index="tx_feuserfriends_friends.accept">Akzeptiert</label>
+			<label index="tx_feuserfriends_message">Nachricht</label>
+			<label index="tx_feuserfriends_message.user_from">Benutzer von</label>
+			<label index="tx_feuserfriends_message.user_to">Benutzer nach</label>
+			<label index="tx_feuserfriends_message.message">Nachricht</label>
+		</languageKey>
+	</data>
+</T3locallang>
